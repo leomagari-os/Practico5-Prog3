@@ -1,4 +1,4 @@
-package entregable3;
+package ej7;
 
 
 public class Tablero {
@@ -30,12 +30,16 @@ public class Tablero {
 	}
 	public Tablero setElement(int e,int posCol, int posFil){
 		this.tablero[posFil][posCol]=e;
+		actualizarSumas(posCol, posFil);
 		return new Tablero(this.tablero,this.sumaCol,this.sumaFil);
 		
 	}
 	public void actualizarSumas(int posCol,int posFil){
 		this.sumaCol[posCol]+=this.tablero[posFil][posCol];
 		this.sumaFil[posFil]+=this.tablero[posFil][posCol];
+	}
+	public int getLength(){
+		return this.tablero.length;
 	}
 	public void imprimir(){
 		for (int i = 0; i < tablero.length; i++) {
@@ -60,6 +64,15 @@ public class Tablero {
 				return false;
 			if(sumaFil[i]!=s)
 				return false;
+		}
+		return true;
+	}
+	public boolean isLleno() {
+		for(int i=0;i<this.tablero.length;i++){
+			for (int j = 0; j < this.tablero.length; j++) {
+				if(this.tablero[i][j]==0)
+					return false;
+			}
 		}
 		return true;
 	}
