@@ -30,16 +30,30 @@ public class Tablero {
 	}
 	public Tablero setElement(int e,int posCol, int posFil){
 		this.tablero[posFil][posCol]=e;
-		actualizarSumas(posCol, posFil);
 		return new Tablero(this.tablero,this.sumaCol,this.sumaFil);
 		
 	}
-	public void actualizarSumas(int posCol,int posFil){
-		this.sumaCol[posCol]+=this.tablero[posFil][posCol];
-		this.sumaFil[posFil]+=this.tablero[posFil][posCol];
+	public void actualizarSumas(){
+		int[] sumaCol=new int[this.sumaCol.length];
+		int[] sumaFil=new int[this.sumaFil.length];
+		for (int i = 0; i < sumaCol.length; i++) {
+			for (int j = 0; j < sumaCol.length; j++) {
+				sumaFil[i]+=this.tablero[i][j];
+				sumaCol[j]+=this.tablero[j][i];
+			}
+		}
+		this.sumaCol=sumaCol;
+		this.sumaFil=sumaFil;
+		
 	}
 	public int getLength(){
 		return this.tablero.length;
+	}
+	public int[] getSumaCol(){
+		return this.sumaCol;
+	}
+	public int[] getSumaFil(){
+		return this.sumaFil;
 	}
 	public void imprimir(){
 		for (int i = 0; i < tablero.length; i++) {
@@ -76,5 +90,7 @@ public class Tablero {
 		}
 		return true;
 	}
-	
+	public int[][] getTablero(){
+		return this.tablero;
+	}
 }

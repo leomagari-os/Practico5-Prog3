@@ -10,9 +10,7 @@ public class Test {
 		int s=15;//es el numero que tiene que dar la suma de cada fila y cada columna
 		int k=10;//k tiene que ser mayor a n*n
 		ControllerTablero c=new ControllerTablero(t,s,k);
-		ControllerTablero res=c.explorarOpciones(c);
-		System.out.println(res);
-		
+		c.solucionPorBacktrack(t, c.getK(), 0,false);
 	}
 
 }
