@@ -13,6 +13,9 @@ public class Tablero {
 		this.sumaCol= new int[n];
 		this.sumaFil= new int[n];
 	}
+	public Tablero(int[][] t){
+		this.tablero=t;
+	}
 	public Tablero(int[][] tablero,int[] sumaCol,int[] sumaFil){
 		this.tablero= new int[tablero.length][tablero.length];
 		this.sumaCol= new int[tablero.length];
@@ -39,7 +42,7 @@ public class Tablero {
 		for (int i = 0; i < sumaCol.length; i++) {
 			for (int j = 0; j < sumaCol.length; j++) {
 				sumaFil[i]+=this.tablero[i][j];
-				sumaCol[j]+=this.tablero[j][i];
+				sumaCol[j]+=this.tablero[i][j];
 			}
 		}
 		this.sumaCol=sumaCol;
@@ -91,6 +94,12 @@ public class Tablero {
 		return true;
 	}
 	public int[][] getTablero(){
-		return this.tablero;
+		int[][] res=new int[this.tablero.length][this.tablero.length];
+		for (int i = 0; i < this.tablero.length; i++) {
+			for (int j = 0; j < this.tablero.length; j++) {
+				res[i][j]=this.tablero[i][j];
+			}
+		}
+		return res;
 	}
 }

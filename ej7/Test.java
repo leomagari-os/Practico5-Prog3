@@ -10,7 +10,10 @@ public class Test {
 		int s=15;//es el numero que tiene que dar la suma de cada fila y cada columna
 		int k=10;//k tiene que ser mayor a n*n
 		ControllerTablero c=new ControllerTablero(t,s,k);
+		System.out.println("Preparando Solucion...");
 		c.solucionPorBacktrack(t, c.getK(), 0,false);
+		System.out.println("Solucion Aleatoria de Tablero Magico");
+		c.imprimirSolucionAleatoria();
 	}
 
 }
